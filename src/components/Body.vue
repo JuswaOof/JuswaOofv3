@@ -1,5 +1,6 @@
 <script setup>
     import { ref, onMounted, nextTick } from 'vue';
+    import Swal from 'sweetalert2'
     import MyImage from './MyImage.vue';
 
     const input = ref('')
@@ -36,6 +37,7 @@
         '/projects': () => [
             {
             type: 'links',
+            linkType: 'project-link',
             links: [
                 {
                     label: 'JuswaOof v2',
@@ -56,6 +58,7 @@
         '/socials': () => [
             {
             type: 'links',
+            linkType: 'social-link',
             links: [
                 {
                     label: 'GitHub',
@@ -197,6 +200,33 @@
         inputRef.value?.focus()
     }
 
+    async function copyToClipboard(text) {
+        try {
+            await navigator.clipboard.writeText(text)
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Clipboard',
+                html: '<span style="color:#4ade80;">Email copied successfully.</span>',
+                timer: 2000,
+                showConfirmButton: false,
+                background: '#0a0c10',
+                color: '#e5e7eb',
+                customClass: {
+                    popup: 'border border-green-500'
+                }
+            })
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops!',
+                text: 'Failed to copy.',
+                background: '#0a0c10',
+                color: '#fff'
+            })
+        }
+    }
+
     onMounted(() => {
         focusInput()
 
@@ -264,6 +294,13 @@
                                 ● {{ link.label }}
                             </a>
                         </div>
+                        <a
+                            v-if="line.linkType === 'social-link'"
+                            @click="copyToClipboard('joshuasalcedo.juswaoof@gmail.com')"
+                            class="text-blue-400 hover:underline cursor-pointer"
+                        >
+                            ● Copy Email Address
+                        </a>
                     </template>
 
                     <!-- Image -->
