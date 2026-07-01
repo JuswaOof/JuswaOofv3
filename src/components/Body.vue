@@ -39,15 +39,15 @@
             links: [
                 {
                 label: 'JuswaOof v2',
-                url: 'https://your-project-v2.com'
+                url: 'https://juswaoof.github.io/Portfolio-2022/'
                 },
                 {
                 label: 'JuswaOof v1',
-                url: 'https://your-project-v1.com'
+                url: 'https://juswaoof.github.io/2020-Portfolio/'
                 },
                 {
                 label: 'PokeStats',
-                url: 'https://your-pokestats.com'
+                url: 'https://juswaoof.github.io/PokeStats/'
                 }
             ]
             }
@@ -59,19 +59,37 @@
             links: [
                 {
                 label: 'GitHub',
-                url: 'https://github.com/yourusername'
+                url: 'https://github.com/JuswaOof'
                 },
                 {
                 label: 'LinkedIn',
-                url: 'https://linkedin.com/in/yourusername'
+                url: 'https://www.linkedin.com/in/juswaoof'
                 },
                 {
                 label: 'Email',
-                url: 'mailto:you@email.com'
+                url: 'mailto:joshuasalcedo.juswaoof@gmail.com'
                 }
             ]
             }
         ],
+
+        '/sudo': () => {
+            window.open(
+                'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                '_blank',
+                'noopener,noreferrer'
+            )
+            terminal.value.push({
+                type: 'output',
+                lines: [
+                    {
+                        type: 'text',
+                        text: 'haha... you got Rick Rolled 😄'
+                    }
+                ]
+            })
+            return null
+        },
 
         '/clear': () => {
             terminal.value = []
@@ -101,27 +119,50 @@
 
         historyIndex.value = history.value.length
 
+        // Easter egg
+        if (/^\/sudo(\s|$)/i.test(command)) {
+            terminal.value.push({
+                type: 'output',
+                lines: [
+                    {
+                        type: 'text',
+                        text: 'haha... you got Rick Rolled 😄'
+                    }
+                ]
+            })
+
+            window.open(
+                'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+                '_blank'
+            )
+
+            input.value = ''
+            await nextTick()
+            inputRef.value.focus()
+            return
+        }
+
         // execute
         const handler = commandMap[command.toLowerCase()]
 
         if (handler) {
             const result = handler()
 
-            if (result) {
+        if (result) {
             terminal.value.push({
                 type: 'output',
                 lines: result
             })
-            }
+        }
         } else {
             terminal.value.push({
-            type: 'output',
-            lines: [
-                {
-                    type: 'text',
-                    text: `Command not found: ${command}`
-                }
-            ]
+                type: 'output',
+                lines: [
+                    {
+                        type: 'text',
+                        text: `Command not found: ${command}`
+                    }
+                ]
             })
         }
 
@@ -199,7 +240,7 @@
                         v-for="command in line.commands"
                         :key="command.name"
                     >
-                        <span class="font-bold text-green-400">
+                        <span class="font-bold">
                         {{ command.name }}
                         </span>
                         - {{ command.description }}
@@ -216,7 +257,7 @@
                             target="_blank"
                             class="text-blue-400 hover:underline"
                             >
-                            {{ link.label }}
+                            ● {{ link.label }}
                         </a>
                     </div>
                     </template>
