@@ -1,5 +1,6 @@
 <script setup>
-    import { ref, onMounted, nextTick } from 'vue'
+    import { ref, onMounted, nextTick } from 'vue';
+    import MyImage from './MyImage.vue';
 
     const input = ref('')
     const inputRef = ref(null)
@@ -28,8 +29,7 @@
 
         '/about': () => [
             {
-            type: 'text',
-            text: "Hi! I'm Joshua Salcedo, a Full Stack Developer specializing in Laravel and Vue."
+            type: 'image'
             }
         ],
 
@@ -38,16 +38,16 @@
             type: 'links',
             links: [
                 {
-                label: 'JuswaOof v2',
-                url: 'https://juswaoof.github.io/Portfolio-2022/'
+                    label: 'JuswaOof v2',
+                    url: 'https://juswaoof.github.io/Portfolio-2022/'
                 },
                 {
-                label: 'JuswaOof v1',
-                url: 'https://juswaoof.github.io/2020-Portfolio/'
+                    label: 'JuswaOof v1',
+                    url: 'https://juswaoof.github.io/2020-Portfolio/'
                 },
                 {
-                label: 'PokeStats',
-                url: 'https://juswaoof.github.io/PokeStats/'
+                    label: 'PokeStats',
+                    url: 'https://juswaoof.github.io/PokeStats/'
                 }
             ]
             }
@@ -58,17 +58,21 @@
             type: 'links',
             links: [
                 {
-                label: 'GitHub',
-                url: 'https://github.com/JuswaOof'
+                    label: 'GitHub',
+                    url: 'https://github.com/JuswaOof'
                 },
                 {
-                label: 'LinkedIn',
-                url: 'https://www.linkedin.com/in/juswaoof'
+                    label: 'Email',
+                    url: 'mailto:joshuasalcedo.juswaoof@gmail.com'
                 },
                 {
-                label: 'Email',
-                url: 'mailto:joshuasalcedo.juswaoof@gmail.com'
-                }
+                    label: 'Dribbble',
+                    url: 'https://dribbble.com/Juswa_oof'
+                },
+                {
+                    label: 'LinkedIn',
+                    url: 'https://www.linkedin.com/in/juswaoof'
+                },
             ]
             }
         ],
@@ -236,30 +240,48 @@
 
                     <!-- Help -->
                     <template v-else-if="line.type === 'commands'">
-                    <div
-                        v-for="command in line.commands"
-                        :key="command.name"
-                    >
-                        <span class="font-bold">
-                        {{ command.name }}
-                        </span>
-                        - {{ command.description }}
-                    </div>
+                        <div
+                            v-for="command in line.commands"
+                            :key="command.name"
+                        >
+                            <span class="font-bold">
+                            {{ command.name }}
+                            </span>
+                            - {{ command.description }}
+                        </div>
                     </template>
 
                     <!-- Links -->
                     <template v-else-if="line.type === 'links'">
-                    <div class="flex gap-4 flex-wrap"
-                        v-for="link in line.links">
-                        <a
-                            :key="link.url"
-                            :href="link.url"
-                            target="_blank"
-                            class="text-blue-400 hover:underline"
-                            >
-                            ● {{ link.label }}
-                        </a>
-                    </div>
+                        <div class="flex gap-4 flex-wrap"
+                            v-for="link in line.links">
+                            <a
+                                :key="link.url"
+                                :href="link.url"
+                                target="_blank"
+                                class="text-blue-400 hover:underline"
+                                >
+                                ● {{ link.label }}
+                            </a>
+                        </div>
+                    </template>
+
+                    <!-- Image -->
+                    <template v-else-if="line.type === 'image'">
+                        <div class="flex gap-4">
+                            <MyImage />
+                            <div class="!text-lg">
+                                <p class="!mb-8">
+                                    Hi! I'm Joshua Salcedo, a Full Stack Developer from the Philippines with a passion for building modern, user-friendly web applications. My primary stack is Laravel, Vue.js, Inertia.js, Tailwind CSS, and MySQL, and I enjoy creating responsive, scalable, and maintainable solutions from backend to frontend.
+                                </p>
+                                <p class="!mb-8">
+                                    I love turning ideas into functional products while continuously improving my skills and exploring new technologies. Whether I'm developing custom web applications, designing WordPress websites, or experimenting with creative side projects, I strive to write clean code and deliver a great user experience.
+                                </p>
+                                <p class="!mb-8">
+                                    Outside of coding, I enjoy building personal projects that challenge my creativity and technical abilities. This terminal-style portfolio is one of those projects, combining my interest in web development with a nostalgic command-line interface. I'm always eager to learn, collaborate, and take on opportunities that help me grow as a developer.
+                                </p>
+                            </div>
+                        </div>
                     </template>
                 </div>
 
