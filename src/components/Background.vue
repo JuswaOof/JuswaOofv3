@@ -1,9 +1,6 @@
-<script setup>
-    import Body from './Body.vue'
-</script>
 <template>
     <div class="terminal-container min-h-screen p-6">
-    <Body />
+        <slot />
     </div>
 </template>
 
@@ -16,7 +13,7 @@
     rgba(18, 24, 38, 0) 50%, 
     rgba(0, 0, 0, 0.3) 50%
     );
-    background-size: 100% 2px;
+    background-size: 100% 1px;
     
     position: relative;
     width: 100%;
@@ -36,9 +33,9 @@
     rgba(16, 185, 129, 0.05) 50%,
     rgba(16, 185, 129, 0) 100%
     );
-    background-size: 100% 5px; 
+    background-size: 100% 6px; 
     
-    animation: multi-scan-scroll 16s linear infinite;
+    /* animation: multi-scan-scroll 16s linear infinite; */
 }
 
 
