@@ -1,8 +1,8 @@
 <template>
     <!-- Title -->
-    <div class="mx-10 mb-8">
-        <div class="flex justify-center mb-8">
-            <pre class="title-logo text-sm">
+    <div class="mx-4 md:mx-10 text-white font-mono text-xs sm:text-sm mb-8">
+        <div class="flex justify-center mb-4 md:mb-8">
+            <pre class="title-logo text-[clamp(5px,0.9vw,16px)] md:text-sm">
 
      ██╗ ██████╗ ███████╗██╗  ██╗██╗   ██╗ █████╗     ███████╗ █████╗ ██╗      ██████╗███████╗██████╗  ██████╗ 
      ██║██╔═══██╗██╔════╝██║  ██║██║   ██║██╔══██╗    ██╔════╝██╔══██╗██║     ██╔════╝██╔════╝██╔══██╗██╔═══██╗
@@ -14,12 +14,10 @@
 
         <!-- Details -->
         <div class="flex flex-col">
-            <p class="font-mono text-white text-sm">
-            Welcome to JuswaOof v3.0! This is a terminal-based web app that showcases my skills and projects. You can also use the command line interface to navigate through the website and access different features. 
-            If you have any questions or feedback, please don't hesitate to reach out to me using <span class="font-bold text-md italic">'/socials'</span>. Thank you for visiting!</p>
-            <p class="font-mono text-white text-sm">
-            Type <span class="font-bold text-md italic">'/help'</span> to see a list of available commands.
-            </p>
+            <p class="font-mono text-white text-xs md:text-sm md:pb-0 pb-2">Welcome to JuswaOof v3.0! This is a terminal-based web app that showcases my skills and projects. </p>
+            <p class="font-mono text-white text-xs md:text-sm md:pb-0 pb-2">You can use the command line interface to navigate through the website and access different features. </p>
+            <p class="font-mono text-white text-xs md:text-sm md:pb-0 pb-2">If you have any questions or feedback, please don't hesitate to reach out to me using <span class="font-bold text-md italic">'/socials'</span>. Thank you for visiting!</p>
+            <p class="font-mono text-white text-xs md:text-sm md:pb-0 pb-2">Type <span class="font-bold text-md italic">'/help'</span> to see a list of available commands.</p>
         </div>
     </div>
     

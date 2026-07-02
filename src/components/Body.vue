@@ -48,7 +48,7 @@
                     url: 'https://juswaoof.github.io/2020-Portfolio/'
                 },
                 {
-                    label: 'PokeStats',
+                    label: 'PokéStats',
                     url: 'https://juswaoof.github.io/PokeStats/'
                 }
             ]
@@ -235,7 +235,7 @@
 </script>
 
 <template>
-    <div class="mx-10 text-white font-mono text-sm" @click="focusInput">
+    <div class="mx-4 md:mx-10 text-white font-mono text-xs sm:text-sm" @click="focusInput">
         <div
             v-for="(entry, index) in terminal"
             :key="index"
@@ -305,9 +305,11 @@
 
                     <!-- Image -->
                     <template v-else-if="line.type === 'image'">
-                        <div class="flex gap-4">
-                            <MyImage />
-                            <div class="!text-lg">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <div class="flex justify-center md:block">
+                                <MyImage />
+                            </div>
+                            <div class="text-xs">
                                 <p class="!mb-8">
                                     Hi! I'm Joshua Salcedo, a Full Stack Developer from the Philippines with a passion for building modern, user-friendly web applications. My primary stack is Laravel, Vue.js, Inertia.js, Tailwind CSS, and MySQL, and I enjoy creating responsive, scalable, and maintainable solutions from backend to frontend.
                                 </p>

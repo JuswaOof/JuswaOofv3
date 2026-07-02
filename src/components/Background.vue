@@ -13,7 +13,7 @@
     rgba(18, 24, 38, 0) 50%, 
     rgba(0, 0, 0, 0.3) 50%
     );
-    background-size: 100% 1px;
+    background-size: 100% 2px;
     
     position: relative;
     width: 100%;
@@ -33,9 +33,9 @@
     rgba(16, 185, 129, 0.05) 50%,
     rgba(16, 185, 129, 0) 100%
     );
-    background-size: 100% 6px; 
+    background-size: 100% 4px; 
     
-    /* animation: multi-scan-scroll 16s linear infinite; */
+    animation: multi-scan-scroll 30s linear infinite;
 }
 
 
