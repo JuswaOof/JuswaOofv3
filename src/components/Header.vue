@@ -25,7 +25,6 @@
 
 <style scoped>
     .title-logo {
-        font-family: monospace;
         line-height: 1;
 
         background: linear-gradient(

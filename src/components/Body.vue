@@ -309,7 +309,7 @@
                             <div class="flex justify-center md:block">
                                 <MyImage />
                             </div>
-                            <div class="text-xs">
+                            <div class="text-xs md:text-sm">
                                 <p class="!mb-8">
                                     Hi! I'm Joshua Salcedo, a Full Stack Developer from the Philippines with a passion for building modern, user-friendly web applications. My primary stack is Laravel, Vue.js, Inertia.js, Tailwind CSS, and MySQL, and I enjoy creating responsive, scalable, and maintainable solutions from backend to frontend.
                                 </p>
