@@ -1,12 +1,13 @@
 <template>
     <!-- Title -->
     <div class="mx-4 md:mx-10 text-white font-mono text-xs sm:text-sm mb-8">
-        <div class="flex justify-center mb-4 md:mb-8">
+        <div class="flex flex-col justify-center items-center mb-4 md:mb-8">
             <img
                 src="../assets/title-logo.png"
                 alt="Website title logo"
                 class="block w-[95%] sm:w-[90%] md:w-[80%] lg:w-[900px] h-auto mx-auto"
             />
+            <p class="text-[0.7rem]">&copy;{{ new Date().getFullYear() }} Juswa Oof</p>
         </div>
 
         <!-- Details -->
