@@ -155,12 +155,12 @@
         if (handler) {
             const result = handler()
 
-        if (result) {
-            terminal.value.push({
-                type: 'output',
-                lines: result
-            })
-        }
+            if (result) {
+                terminal.value.push({
+                    type: 'output',
+                    lines: result
+                })
+            }
         } else {
             terminal.value.push({
                 type: 'output',
@@ -224,6 +224,29 @@
                 background: '#0a0c10',
                 color: '#fff'
             })
+        }
+    }
+
+    function autocompleteCommand() {
+        const value = input.value.trim()
+
+        if (!value) return
+
+        // find commands that start with what the user typed
+        const matches = commands
+            .map(cmd => cmd.name)
+            .filter(name => name.toLowerCase().startsWith(value.toLowerCase()))
+
+        // if there is exactly one match, autofill it
+        if (matches.length === 1) {
+            input.value = matches[0]
+            return
+        }
+
+        //matches the first 
+        if (matches.length > 0) {
+            input.value = matches[0]
+            return
         }
     }
 
@@ -341,6 +364,7 @@
                 @keyup.enter="executeCommand"
                 @keydown.up.prevent="previousCommand"
                 @keydown.down.prevent="nextCommand"
+                @keydown.tab.prevent="autocompleteCommand"
                 placeholder="Type a command..."
             />
         </div>
