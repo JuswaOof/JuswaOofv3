@@ -1,5 +1,6 @@
 <script setup>
     import { ref, onMounted, nextTick } from 'vue';
+    import VisitCounter from './VisitCounter.vue';
     import Swal from 'sweetalert2'
     import MyImage from './MyImage.vue';
 
@@ -370,6 +371,7 @@
         </div>
 
     </div>
+    <VisitCounter />
 </template>
 
 <style scoped>
